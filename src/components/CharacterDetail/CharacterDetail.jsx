@@ -28,6 +28,7 @@ const CharacterDetail = () => {
                             return <p key={index}>{ally}</p>
                         })}
                     </ul>
+                    <p>ENEMIES:</p>
                     <ul>
                         {chosenCharacter.enemies.map((enemy, index) => {
                             return <p key={index}>{enemy}</p>

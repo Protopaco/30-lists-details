@@ -5,8 +5,8 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import ListPage from '../../views/ListPage/ListPage.jsx';
-import CharacterDetail from '../../views/CharacterDetail/CharacterDetail.jsx';
+import ListPage from '../../containers/ListPage/ListPage.jsx';
+import CharacterDetail from '../CharacterDetail/CharacterDetail.jsx';
 
 
 export default function App() {

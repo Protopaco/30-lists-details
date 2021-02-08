@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { fetchCharacters } from '../../services/fetches.js';
+import { fetchCharacters } from '../../services/fetch.js';
 import styles from './ListPage.jsx';
-import CharacterPreview from '../components/CharacterPreview/CharacterPreview.jsx'
+import CharacterPreview from '../../components/CharacterPreview/CharacterPreview.jsx'
 
 const ListPage = () => {
     const [characterList, setCharacterList] = useState([]);
@@ -12,9 +12,14 @@ const ListPage = () => {
     }, [])
 
     const characterMap = characterList.map((character, index) => {
-        return <li key={index}>
-            <CharacterPreview {...character} />
-        </li>
+        if (character.photoUrl) {
+            return <li key={index}>
+                <CharacterPreview {...character} />
+            </li>
+        }
+        else {
+            return <p key={index}></p>
+        }
     })
 
     return (
