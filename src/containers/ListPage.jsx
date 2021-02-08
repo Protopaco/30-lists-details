@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchCharacters } from '../../services/fetches.js';
 import styles from './ListPage.jsx';
+import CharacterPreview from '../components/CharacterPreview/CharacterPreview.jsx'
 
 const ListPage = () => {
     const [characterList, setCharacterList] = useState([]);
