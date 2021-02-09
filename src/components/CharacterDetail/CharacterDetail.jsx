@@ -14,9 +14,9 @@ const CharacterDetail = () => {
 
     return (
         <div>
-            <Link to='/'>
+            {/* <Link to='/'>
                 <BiArrowBack />
-            </Link>
+            </Link> */}
             {chosenCharacter ?
                 <div>
                     <img src={chosenCharacter.photoUrl} alt={`image of ${chosenCharacter.name}`} />

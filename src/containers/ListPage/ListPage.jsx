@@ -5,10 +5,12 @@ import CharacterPreview from '../../components/CharacterPreview/CharacterPreview
 
 const ListPage = () => {
     const [characterList, setCharacterList] = useState([]);
+    const [loading, setLoading] = useState(true)
 
     useEffect(async () => {
-        const characterList = await fetchCharacters();
-        setCharacterList(characterList);
+        const fetchedList = await fetchCharacters();
+        setCharacterList(fetchedList);
+        setLoading(false)
     }, [])
 
     const characterMap = characterList.map((character, index) => {
@@ -22,17 +24,15 @@ const ListPage = () => {
         }
     })
 
-    return (
-        <div>
-            {characterList ?
-                <ul className={styles.listPage}>
-                    {characterMap}
-                </ul>
-                :
-                <p>LOADING!</p>
-            }
-        </div>
-    )
+    if (loading) return <p>LOADING!</p>;
+
+    return <div className={styles.listPage}
+        data-testid='characterList'>
+        <ul>
+            {characterMap}
+        </ul>
+    </div>
+
 }
 
 export default ListPage;
