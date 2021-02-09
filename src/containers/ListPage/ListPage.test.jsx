@@ -1,20 +1,18 @@
 import React from 'react';
 // import reactDOM from 'react-dom';
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor, cleanup } from '@testing-library/react';
 import ListPage from './ListPage';
-import App from '../../components/app/App'
-import { unmountComponentAtNode } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('ListPage tests', () => {
+    afterEach(() => cleanup());
 
-    it('displays CharacterPreview', async () => {
+    it('displays ListPage', async () => {
         let ul;
         render(
-            <BrowserRouter>
+            <Router>
                 <ListPage />
-            </BrowserRouter>)
-
+            </Router>)
 
         screen.getByText('LOADING!');
         ul = await screen.findByTestId('characterList');
@@ -23,4 +21,12 @@ describe('ListPage tests', () => {
             expect(ul).not.toBeEmptyDOMElement();
         })
     })
+
+
+    it('renders ListPage', () => {
+        const { asFragment } = render(<Router>
+            <ListPage />
+        </Router>);
+        expect(asFragment()).toMatchSnapshot();
+    });
 })

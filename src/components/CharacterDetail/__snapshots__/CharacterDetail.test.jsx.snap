@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterDetail component renders CharacterDetail 1`] = `
+<DocumentFragment>
+  <div>
+    <p>
+      LOADING!
+    </p>
+  </div>
+</DocumentFragment>
+`;

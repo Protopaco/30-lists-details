@@ -26,12 +26,10 @@ const ListPage = () => {
 
     if (loading) return <p>LOADING!</p>;
 
-    return <div className={styles.listPage}
+    return <ul className={styles.listPage}
         data-testid='characterList'>
-        <ul>
-            {characterMap}
-        </ul>
-    </div>
+        {characterMap}
+    </ul>
 
 }
 

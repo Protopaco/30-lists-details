@@ -4,6 +4,7 @@ import styles from './CharacterPreview.css';
 import { Link } from 'react-router-dom';
 
 const CharacterPreview = ({ photoUrl, name, _id }) => (
+
     <figure
         className={styles.CharacterPreview}>
         <Link to={`/details/${_id}`}>
